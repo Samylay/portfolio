@@ -1,8 +1,7 @@
 import React from "react";
-import { Card, CardBody, Button, Link, image } from "@nextui-org/react";
+import { Card, CardBody, Button, Link } from "@nextui-org/react";
 import { FaGithub, FaLinkedinIn, FaMapMarkerAlt } from "react-icons/fa";
 import { BsBriefcase } from "react-icons/bs";
-import { BsArrowUpRight } from "react-icons/bs";
 import Image from "next/image";
 
 const Hero = ({
@@ -15,35 +14,32 @@ const Hero = ({
     links: {
       github: "https://github.com/Samylay",
       linkedin: "https://linkedin.com/in/samy-layaida",
-      resume: "/path-to-resume.pdf",
     },
     availability: "Open to opportunities",
   },
 }) => {
   return (
-    <section className="min-h-screen py-16 bg-gray-950" id="hero">
-      <div className="max-w-4xl mx-auto px-8  bg-gray-950">
-        <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800">
+    <section className="min-h-screen py-16" id="hero">
+      <div className="max-w-4xl mx-auto px-8 ">
+        <Card className="dark:bg-gradient-to-br from-gray-900 to-gray-800 border dark:border-gray-800">
           <CardBody className="p-8">
             <div className="flex md:flex-row gap-8 items-center">
-              {/* Profile Image Column */}
-              <div className="w-48 h-48 rounded-full border-4 border-gray-700 overflow-hidden">
+              <div className="w-48 h-48 rounded-full border-4 border-gray-200 dark:border-gray-700 overflow-hidden">
                 <Image
-                  src={personalInfo.image}
                   alt="Profile"
                   className="w-full h-full object-cover"
-                  width={192}
                   height={192}
+                  src={personalInfo.image}
+                  width={192}
                 />
               </div>
 
-              {/* Info Column */}
               <div className="w-full md:w-2/3 space-y-6">
                 <div>
-                  <h1 className="text-4xl font-bold text-white mb-2">
+                  <h1 className="text-4xl font-bold dark:text-white mb-2">
                     {personalInfo.name}
                   </h1>
-                  <p className="text-2xl text-gray-300 mb-2">
+                  <p className="text-2xl dark:text-gray-300 mb-2">
                     {personalInfo.title}
                   </p>
                   <p className="text-blue-400 flex items-center gap-2">
@@ -53,7 +49,7 @@ const Hero = ({
                 </div>
 
                 <div className="space-y-4">
-                  <p className="text-gray-300 text-lg leading-relaxed">
+                  <p className="dark:text-gray-300 text-lg leading-relaxed">
                     {personalInfo.bio}
                   </p>
                   <div className="inline-block px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
@@ -67,31 +63,31 @@ const Hero = ({
                 <div className="flex flex-wrap gap-3">
                   <Button
                     as={Link}
+                    className="dark:bg-gray-800 dark:text-gray-300 dark:hover:text-white group"
                     href={personalInfo.links.github}
-                    target="_blank"
-                    variant="flat"
-                    className="bg-gray-800 text-gray-300 hover:text-white group"
                     startContent={
                       <FaGithub
+                        className="dark:group-hover:text-white transition-colors"
                         size={20}
-                        className="group-hover:text-white transition-colors"
                       />
                     }
+                    target="_blank"
+                    variant="flat"
                   >
                     GitHub
                   </Button>
                   <Button
                     as={Link}
+                    className="dark:bg-gray-800 dark:text-gray-300 dark:hover:text-white group"
                     href={personalInfo.links.linkedin}
-                    target="_blank"
-                    variant="flat"
-                    className="bg-gray-800 text-gray-300 hover:text-white group"
                     startContent={
                       <FaLinkedinIn
+                        className="dark:group-hover:text-white dark:transition-colors"
                         size={20}
-                        className="group-hover:text-white transition-colors"
                       />
                     }
+                    target="_blank"
+                    variant="flat"
                   >
                     LinkedIn
                   </Button>

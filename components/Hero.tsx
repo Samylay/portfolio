@@ -14,7 +14,6 @@ const Hero = ({
     links: {
       github: "https://github.com/Samylay",
       linkedin: "https://linkedin.com/in/samy-layaida",
-      resume: "/path-to-resume.pdf",
     },
     availability: "Open to opportunities",
   },

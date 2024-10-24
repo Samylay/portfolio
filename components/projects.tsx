@@ -7,7 +7,7 @@ const Projects = ({
     {
       title: "Mock project",
       description: "Mock data",
-      image: "/api/placeholder/600/300",
+      image: "/images/Mock.jpg",
       tech: ["Next.js", "TypeScript"],
       github: "#",
       live: "#",
@@ -34,7 +34,7 @@ const Projects = ({
                     className="w-full h-64 object-cover"
                     src={project.image}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-300/90 dark:to-gray-900/90 rounded-b-2xl" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-300/90 dark:to-gray-900/90" />
                 </div>
 
                 <div className="p-6 space-y-4">

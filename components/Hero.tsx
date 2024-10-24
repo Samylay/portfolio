@@ -20,12 +20,12 @@ const Hero = ({
   },
 }) => {
   return (
-    <section className="min-h-screen py-16 bg-gray-950" id="hero">
-      <div className="max-w-4xl mx-auto px-8  bg-gray-950">
-        <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800">
+    <section className="min-h-screen py-16" id="hero">
+      <div className="max-w-4xl mx-auto px-8 ">
+        <Card className="dark:bg-gradient-to-br from-gray-900 to-gray-800 border dark:border-gray-800">
           <CardBody className="p-8">
             <div className="flex md:flex-row gap-8 items-center">
-              <div className="w-48 h-48 rounded-full border-4 border-gray-700 overflow-hidden">
+              <div className="w-48 h-48 rounded-full border-4 border-gray-200 dark:border-gray-700 overflow-hidden">
                 <Image
                   alt="Profile"
                   className="w-full h-full object-cover"
@@ -37,10 +37,10 @@ const Hero = ({
 
               <div className="w-full md:w-2/3 space-y-6">
                 <div>
-                  <h1 className="text-4xl font-bold text-white mb-2">
+                  <h1 className="text-4xl font-bold dark:text-white mb-2">
                     {personalInfo.name}
                   </h1>
-                  <p className="text-2xl text-gray-300 mb-2">
+                  <p className="text-2xl dark:text-gray-300 mb-2">
                     {personalInfo.title}
                   </p>
                   <p className="text-blue-400 flex items-center gap-2">
@@ -50,7 +50,7 @@ const Hero = ({
                 </div>
 
                 <div className="space-y-4">
-                  <p className="text-gray-300 text-lg leading-relaxed">
+                  <p className="dark:text-gray-300 text-lg leading-relaxed">
                     {personalInfo.bio}
                   </p>
                   <div className="inline-block px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
@@ -64,11 +64,11 @@ const Hero = ({
                 <div className="flex flex-wrap gap-3">
                   <Button
                     as={Link}
-                    className="bg-gray-800 text-gray-300 hover:text-white group"
+                    className="dark:bg-gray-800 dark:text-gray-300 dark:hover:text-white group"
                     href={personalInfo.links.github}
                     startContent={
                       <FaGithub
-                        className="group-hover:text-white transition-colors"
+                        className="dark:group-hover:text-white transition-colors"
                         size={20}
                       />
                     }
@@ -79,11 +79,11 @@ const Hero = ({
                   </Button>
                   <Button
                     as={Link}
-                    className="bg-gray-800 text-gray-300 hover:text-white group"
+                    className="dark:bg-gray-800 dark:text-gray-300 dark:hover:text-white group"
                     href={personalInfo.links.linkedin}
                     startContent={
                       <FaLinkedinIn
-                        className="group-hover:text-white transition-colors"
+                        className="dark:group-hover:text-white dark:transition-colors"
                         size={20}
                       />
                     }

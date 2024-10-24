@@ -41,8 +41,8 @@ const Contact = () => {
   });
 
   return (
-    <section className="min-h-screen py-16 bg-gray-950" id="contact">
-      <h1 className="text-4xl font-bold text-white mb-8">Contact me</h1>
+    <section className="min-h-screen py-16" id="contact">
+      <h1 className="text-4xl font-bold dark:text-white mb-8">Contact me</h1>
       <div className="flex max-w-4xl mx-auto px-8 mt-24">
         <Card className="w-full">
           <CardBody className="gap-4">
@@ -100,6 +100,7 @@ const Contact = () => {
                 color="default"
                 size="lg"
                 type="submit"
+                variant="ghost"
               >
                 Submit
               </Button>

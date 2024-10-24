@@ -3,6 +3,7 @@ import Contact from "@/components/contact";
 import Skills from "@/components/skills";
 import Projects from "@/components/projects";
 import Hero from "@/components/Hero";
+import BackToTopButton from "@/components/BackToTopButton";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Skills />
         <Projects />
         <Contact />
+        <BackToTopButton />
       </div>
     </div>
   );

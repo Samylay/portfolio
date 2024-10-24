@@ -6,7 +6,7 @@ import { Input } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/react";
 
 const Contact = () => {
   const inquiryTypes = [
@@ -46,36 +46,36 @@ const Contact = () => {
       <div className="flex max-w-4xl mx-auto px-8 mt-24">
         <Card className="w-full">
           <CardBody className="gap-4">
-            <form onSubmit={formik.handleSubmit} className="space-y-6">
+            <form className="space-y-6" onSubmit={formik.handleSubmit}>
               <Input
-                type="text"
-                label="Name"
-                id="firstName"
-                variant="bordered"
-                isInvalid={
-                  formik.touched.firstName && !!formik.errors.firstName
-                }
                 errorMessage={
                   formik.touched.firstName && formik.errors.firstName
                 }
+                id="firstName"
+                isInvalid={
+                  formik.touched.firstName && !!formik.errors.firstName
+                }
+                label="Name"
+                type="text"
+                variant="bordered"
                 {...formik.getFieldProps("firstName")}
               />
 
               <Input
-                type="email"
-                label="Email Address"
-                id="email"
-                variant="bordered"
-                isInvalid={formik.touched.email && !!formik.errors.email}
                 errorMessage={formik.touched.email && formik.errors.email}
+                id="email"
+                isInvalid={formik.touched.email && !!formik.errors.email}
+                label="Email Address"
+                type="email"
+                variant="bordered"
                 {...formik.getFieldProps("email")}
               />
 
               <Select
-                label="Type of enquiry"
-                id="type"
-                variant="bordered"
                 defaultSelectedKeys={["other"]}
+                id="type"
+                label="Type of enquiry"
+                variant="bordered"
                 {...formik.getFieldProps("type")}
               >
                 {inquiryTypes.map((type) => (
@@ -86,20 +86,20 @@ const Contact = () => {
               </Select>
 
               <Textarea
-                label="Your message"
-                id="comment"
-                variant="bordered"
-                minRows={4}
-                isInvalid={formik.touched.comment && !!formik.errors.comment}
                 errorMessage={formik.touched.comment && formik.errors.comment}
+                id="comment"
+                isInvalid={formik.touched.comment && !!formik.errors.comment}
+                label="Your message"
+                minRows={4}
+                variant="bordered"
                 {...formik.getFieldProps("comment")}
               />
 
               <Button
-                type="submit"
-                color="default"
                 className="w-full"
+                color="default"
                 size="lg"
+                type="submit"
               >
                 Submit
               </Button>

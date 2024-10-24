@@ -36,7 +36,7 @@ const Skills = ({
                     key={skill}
                     className="text-gray-300 flex items-center space-x-2"
                   >
-                    <span className="w-2 h-2 bg-primary-200 rounded-full"></span>
+                    <span className="w-2 h-2 bg-primary-200 rounded-full" />
                     <span>{skill}</span>
                   </li>
                 ))}

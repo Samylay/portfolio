@@ -1,8 +1,7 @@
 import React from "react";
-import { Card, CardBody, Button, Link, image } from "@nextui-org/react";
+import { Card, CardBody, Button, Link } from "@nextui-org/react";
 import { FaGithub, FaLinkedinIn, FaMapMarkerAlt } from "react-icons/fa";
 import { BsBriefcase } from "react-icons/bs";
-import { BsArrowUpRight } from "react-icons/bs";
 import Image from "next/image";
 
 const Hero = ({
@@ -26,18 +25,16 @@ const Hero = ({
         <Card className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-800">
           <CardBody className="p-8">
             <div className="flex md:flex-row gap-8 items-center">
-              {/* Profile Image Column */}
               <div className="w-48 h-48 rounded-full border-4 border-gray-700 overflow-hidden">
                 <Image
-                  src={personalInfo.image}
                   alt="Profile"
                   className="w-full h-full object-cover"
-                  width={192}
                   height={192}
+                  src={personalInfo.image}
+                  width={192}
                 />
               </div>
 
-              {/* Info Column */}
               <div className="w-full md:w-2/3 space-y-6">
                 <div>
                   <h1 className="text-4xl font-bold text-white mb-2">
@@ -67,31 +64,31 @@ const Hero = ({
                 <div className="flex flex-wrap gap-3">
                   <Button
                     as={Link}
-                    href={personalInfo.links.github}
-                    target="_blank"
-                    variant="flat"
                     className="bg-gray-800 text-gray-300 hover:text-white group"
+                    href={personalInfo.links.github}
                     startContent={
                       <FaGithub
-                        size={20}
                         className="group-hover:text-white transition-colors"
+                        size={20}
                       />
                     }
+                    target="_blank"
+                    variant="flat"
                   >
                     GitHub
                   </Button>
                   <Button
                     as={Link}
-                    href={personalInfo.links.linkedin}
-                    target="_blank"
-                    variant="flat"
                     className="bg-gray-800 text-gray-300 hover:text-white group"
+                    href={personalInfo.links.linkedin}
                     startContent={
                       <FaLinkedinIn
-                        size={20}
                         className="group-hover:text-white transition-colors"
+                        size={20}
                       />
                     }
+                    target="_blank"
+                    variant="flat"
                   >
                     LinkedIn
                   </Button>

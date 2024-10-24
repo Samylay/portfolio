@@ -6,15 +6,12 @@ const Projects = ({
   projects = [
     {
       title: "Mock project",
-      description:
-        "Mock data",
+      description: "Mock data",
       image: "/api/placeholder/600/300",
       tech: ["Next.js", "TypeScript"],
       github: "#",
       live: "#",
-      highlights: [
-        "Mock highlights",
-      ],
+      highlights: ["Mock highlights"],
     },
   ],
 }) => {
@@ -33,9 +30,9 @@ const Projects = ({
               <CardBody className="p-0">
                 <div className="relative">
                   <img
-                    src={project.image}
                     alt={project.title}
                     className="w-full h-64 object-cover"
+                    src={project.image}
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90" />
                 </div>
@@ -47,22 +44,22 @@ const Projects = ({
                     </h3>
                     <div className="flex gap-2">
                       <Button
+                        isIconOnly
                         as={Link}
+                        className="bg-gray-800 text-gray-300 hover:text-white"
                         href={project.github}
                         target="_blank"
-                        isIconOnly
                         variant="flat"
-                        className="bg-gray-800 text-gray-300 hover:text-white"
                       >
                         <FaGithub className="w-5 h-5" />
                       </Button>
                       <Button
+                        isIconOnly
                         as={Link}
+                        className="bg-gray-800 text-gray-300 hover:text-white"
                         href={project.live}
                         target="_blank"
-                        isIconOnly
                         variant="flat"
-                        className="bg-gray-800 text-gray-300 hover:text-white"
                       >
                         <CiGlobe className="w-5 h-5" />
                       </Button>
@@ -81,7 +78,7 @@ const Projects = ({
                           key={highlight}
                           className="text-gray-300 flex items-center space-x-2"
                         >
-                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
                           <span>{highlight}</span>
                         </li>
                       ))}

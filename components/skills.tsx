@@ -1,51 +1,51 @@
-import React from "react";
-import { Card, CardBody } from "@nextui-org/react";
+import { SectionHeading, Reveal } from "@/components/section";
 
-const Skills = ({
-  skills = [
-    {
-      category: "Frontend",
-      items: ["React", "Tailwind CSS", "JavaScript"],
-    },
-    {
-      category: "Backend",
-      items: ["PHP Symfony", "PostgreSQL", "MongoDB"],
-    },
-    {
-      category: "Tools & Others",
-      items: ["Git", "Docker", "Cypress"],
-    },
-  ],
-}) => {
+const skills = [
+  {
+    category: "Frontend",
+    items: ["TypeScript", "React", "Next.js", "Angular", "Tailwind CSS"],
+  },
+  {
+    category: "Backend",
+    items: ["Node.js", "PHP / Symfony", "PostgreSQL", "MongoDB", "SQLite"],
+  },
+  {
+    category: "Infra & Tooling",
+    items: [
+      "Docker",
+      "Self-hosting",
+      "Cloudflare",
+      "Prometheus + Grafana",
+      "Git",
+    ],
+  },
+];
+
+const Skills = () => {
   return (
-    <section className="min-h-screen py-16" id="skils">
-      <div className="max-w-4xl mx-auto px-8">
-        <h2 className="text-4xl font-bold dark:text-white mb-8">
-          Technical Skills
-        </h2>
-        <Card className="dark:bg-gray-900 grid gap-6 p-6">
-          {skills.map((skillGroup) => (
-            <CardBody
-              key={skillGroup.category}
-              className="border dark:border-gray-800 bg-gray-100/50 dark:bg-gray-900/50 p-6 rounded-lg transform transition-transform duration-300 hover:scale-105"
-            >
-              <h3 className="font-semibold dark:text-white mb-4 border-b dark:border-gray-700 pb-2">
-                {skillGroup.category}
+    <section className="pt-24 sm:pt-28" id="stack">
+      <SectionHeading eyebrow="Stack" index="01" title="What I build with" />
+      <div className="grid gap-4 sm:grid-cols-3">
+        {skills.map((group, i) => (
+          <Reveal key={group.category} delay={i * 0.08}>
+            <div className="h-full rounded-2xl border border-default-200 bg-default-50/50 p-6 transition-colors hover:border-primary/40">
+              <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-default-500">
+                {group.category}
               </h3>
-              <ul className="space-y-2">
-                {skillGroup.items.map((skill) => (
+              <ul className="mt-4 space-y-2.5">
+                {group.items.map((item) => (
                   <li
-                    key={skill}
-                    className="dark:text-gray-300 flex items-center space-x-2"
+                    key={item}
+                    className="flex items-center gap-2.5 text-default-700"
                   >
-                    <span className="w-2 h-2 bg-primary-200 rounded-full" />
-                    <span>{skill}</span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    {item}
                   </li>
                 ))}
               </ul>
-            </CardBody>
-          ))}
-        </Card>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

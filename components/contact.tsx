@@ -1,28 +1,27 @@
 "use client";
-import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Input } from "@nextui-org/input";
+import { Input, Textarea } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/react";
-import { Textarea } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
-import { Card, CardBody } from "@nextui-org/react";
+import { Link } from "@nextui-org/link";
+
+import { SectionHeading } from "@/components/section";
+import { siteConfig } from "@/config/site";
 
 const Contact = () => {
   const inquiryTypes = [
-    { label: "Freelance project proposal", value: "hireMe" },
-    { label: "Collaboration", value: "collaboration" },
-    { label: "Feedback", value: "feedback" },
-    { label: "Other", value: "other" },
+    {
+      label: "Freelance project proposal",
+      value: "Freelance project proposal",
+    },
+    { label: "Collaboration", value: "Collaboration" },
+    { label: "Feedback", value: "Feedback" },
+    { label: "Other", value: "Other" },
   ];
 
   const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      email: "",
-      type: "other",
-      comment: "",
-    },
+    initialValues: { firstName: "", email: "", type: "Other", comment: "" },
     validationSchema: Yup.object({
       firstName: Yup.string().required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
@@ -32,81 +31,94 @@ const Contact = () => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      const emailBody = `${values.comment}`.trim();
+      const subject = `${values.type} — ${values.firstName}`;
+      const body = `${values.comment}\n\n— ${values.firstName} (${values.email})`;
 
-      const mailtoUrl = `mailto:layaida.samy@gmail.com?subject=${encodeURIComponent(values.type)}&body=${encodeURIComponent(emailBody)}`;
-
-      window.location.href = mailtoUrl;
+      window.location.href = `mailto:layaida.samy@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     },
   });
 
   return (
-    <section className="min-h-screen py-16" id="contact">
-      <h1 className="text-4xl font-bold dark:text-white mb-8">Contact me</h1>
-      <div className="flex max-w-4xl mx-auto px-8 mt-24">
-        <Card className="w-full">
-          <CardBody className="gap-4">
-            <form className="space-y-6" onSubmit={formik.handleSubmit}>
-              <Input
-                errorMessage={
-                  formik.touched.firstName && formik.errors.firstName
-                }
-                id="firstName"
-                isInvalid={
-                  formik.touched.firstName && !!formik.errors.firstName
-                }
-                label="Name"
-                type="text"
-                variant="bordered"
-                {...formik.getFieldProps("firstName")}
-              />
+    <section className="pt-24 sm:pt-28" id="contact">
+      <SectionHeading eyebrow="Contact" index="04" title="Let's talk" />
+      <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="text-default-600">
+            Have a project, a role, or an idea worth building? Send a note and
+            I&apos;ll get back to you. You can also reach me directly:
+          </p>
+          <div className="mt-6 flex flex-col gap-3 font-mono text-sm">
+            <Link
+              className="text-default-600 hover:text-primary"
+              href={siteConfig.links.email}
+            >
+              layaida.samy@gmail.com
+            </Link>
+            <Link
+              isExternal
+              className="text-default-600 hover:text-primary"
+              href={siteConfig.links.github}
+            >
+              github.com/Samylay
+            </Link>
+            <Link
+              isExternal
+              className="text-default-600 hover:text-primary"
+              href={siteConfig.links.linkedin}
+            >
+              linkedin.com/in/samy-layaida
+            </Link>
+          </div>
+        </div>
 
-              <Input
-                errorMessage={formik.touched.email && formik.errors.email}
-                id="email"
-                isInvalid={formik.touched.email && !!formik.errors.email}
-                label="Email Address"
-                type="email"
-                variant="bordered"
-                {...formik.getFieldProps("email")}
-              />
-
-              <Select
-                defaultSelectedKeys={["other"]}
-                id="type"
-                label="Type of enquiry"
-                variant="bordered"
-                {...formik.getFieldProps("type")}
-              >
-                {inquiryTypes.map((type) => (
-                  <SelectItem key={type.value} value={type.value}>
-                    {type.label}
-                  </SelectItem>
-                ))}
-              </Select>
-
-              <Textarea
-                errorMessage={formik.touched.comment && formik.errors.comment}
-                id="comment"
-                isInvalid={formik.touched.comment && !!formik.errors.comment}
-                label="Your message"
-                minRows={4}
-                variant="bordered"
-                {...formik.getFieldProps("comment")}
-              />
-
-              <Button
-                className="w-full"
-                color="default"
-                size="lg"
-                type="submit"
-                variant="ghost"
-              >
-                Submit
-              </Button>
-            </form>
-          </CardBody>
-        </Card>
+        <form className="space-y-4" onSubmit={formik.handleSubmit}>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Input
+              errorMessage={formik.touched.firstName && formik.errors.firstName}
+              isInvalid={formik.touched.firstName && !!formik.errors.firstName}
+              label="Name"
+              variant="bordered"
+              {...formik.getFieldProps("firstName")}
+            />
+            <Input
+              errorMessage={formik.touched.email && formik.errors.email}
+              isInvalid={formik.touched.email && !!formik.errors.email}
+              label="Email"
+              type="email"
+              variant="bordered"
+              {...formik.getFieldProps("email")}
+            />
+          </div>
+          <Select
+            defaultSelectedKeys={["Other"]}
+            label="Type of enquiry"
+            variant="bordered"
+            {...formik.getFieldProps("type")}
+          >
+            {inquiryTypes.map((type) => (
+              <SelectItem key={type.value} value={type.value}>
+                {type.label}
+              </SelectItem>
+            ))}
+          </Select>
+          <Textarea
+            errorMessage={formik.touched.comment && formik.errors.comment}
+            isInvalid={formik.touched.comment && !!formik.errors.comment}
+            label="Your message"
+            minRows={4}
+            variant="bordered"
+            {...formik.getFieldProps("comment")}
+          />
+          <Button
+            color="primary"
+            radius="full"
+            size="lg"
+            type="submit"
+            variant="shadow"
+          >
+            Send message
+          </Button>
+        </form>
       </div>
     </section>
   );

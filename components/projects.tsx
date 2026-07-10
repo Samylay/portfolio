@@ -1,105 +1,165 @@
-import React from "react";
-import { Card, CardBody, Button, Link } from "@nextui-org/react";
-import { CiGlobe } from "react-icons/ci";
-import { FaGithub } from "react-icons/fa";
-const Projects = ({
-  projects = [
-    {
-      title: "Mock project",
-      description: "Mock data",
-      image: "/images/Mock.jpg",
-      tech: ["Next.js", "TypeScript"],
-      github: "#",
-      live: "#",
-      highlights: ["Mock highlights"],
-    },
-  ],
-}) => {
+import { Link } from "@nextui-org/link";
+import { FaGithub, FaArrowRight } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
+
+import { projects, type Project } from "@/config/projects";
+import { SectionHeading, Reveal } from "@/components/section";
+
+function StatusPill({ status }: { status: Project["status"] }) {
+  const tone =
+    status === "Live"
+      ? "text-emerald-500 border-emerald-500/30 bg-emerald-500/10"
+      : status === "Self-hosted"
+        ? "text-primary border-primary/30 bg-primary/10"
+        : status === "Archived"
+          ? "text-default-500 border-default-300 bg-default-100"
+          : "text-amber-500 border-amber-500/30 bg-amber-500/10";
+
   return (
-    <section className="min-h-screen py-16" id="projects">
-      <div className="max-w-4xl mx-auto px-8">
-        <h2 className="text-4xl font-bold dark:text-white mb-8">
-          Featured Projects
-        </h2>
-        <div className="space-y-8">
-          {projects.map((project) => (
-            <Card
-              key={project.title}
-              className="dark:bg-gray-900 border dark:border-gray-800"
+    <span
+      className={`rounded-full border px-2.5 py-0.5 font-mono text-[0.68rem] uppercase tracking-wide ${tone}`}
+    >
+      {status}
+    </span>
+  );
+}
+
+function Tech({ tech }: { tech: string[] }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {tech.map((t) => (
+        <span
+          key={t}
+          className="rounded-md border border-default-200 bg-default-100/60 px-2.5 py-1 font-mono text-xs text-default-600"
+        >
+          {t}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function ProjectLinks({ project }: { project: Project }) {
+  return (
+    <div className="flex items-center gap-4 text-sm">
+      {project.github && (
+        <Link
+          isExternal
+          className="flex items-center gap-1.5 text-default-600 hover:text-primary"
+          href={project.github}
+        >
+          <FaGithub size={16} /> Code
+        </Link>
+      )}
+      {project.live && (
+        <Link
+          isExternal
+          className="flex items-center gap-1.5 text-default-600 hover:text-primary"
+          href={project.live}
+        >
+          <FiExternalLink size={16} /> Live
+        </Link>
+      )}
+    </div>
+  );
+}
+
+function FeaturedCard({ project }: { project: Project }) {
+  return (
+    <div className="group relative overflow-hidden rounded-3xl border border-default-200 bg-gradient-to-br from-default-50 to-default-100/40 p-8 transition-colors hover:border-primary/40 sm:p-10">
+      <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/10 blur-3xl transition-opacity group-hover:opacity-80" />
+      <div className="relative">
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
+            Featured
+          </span>
+          <StatusPill status={project.status} />
+          <span className="font-mono text-xs text-default-400">
+            {project.year}
+          </span>
+        </div>
+        <h3 className="mt-4 text-3xl font-semibold tracking-tight text-foreground">
+          {project.title}
+        </h3>
+        <p className="mt-1 text-lg text-primary">{project.tagline}</p>
+        <p className="mt-4 max-w-2xl text-default-600">{project.description}</p>
+        <ul className="mt-5 grid gap-2 sm:grid-cols-3">
+          {project.highlights.map((h) => (
+            <li
+              key={h}
+              className="flex items-start gap-2 text-sm text-default-600"
             >
-              <CardBody className="p-0">
-                <div className="relative">
-                  <img
-                    alt={project.title}
-                    className="w-full h-64 object-cover"
-                    src={project.image}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-300/90 dark:to-gray-900/90" />
-                </div>
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+              {h}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
+          <Tech tech={project.tech} />
+          <ProjectLinks project={project} />
+        </div>
+      </div>
+    </div>
+  );
+}
 
-                <div className="p-6 space-y-4">
-                  <div className="flex justify-between items-start">
-                    <h3 className="text-2xl font-bold dark:text-white">
-                      {project.title}
-                    </h3>
-                    <div className="flex gap-2">
-                      <Button
-                        isIconOnly
-                        as={Link}
-                        className="dark:bg-gray-800 dark:text-gray-300 dark:hover:text-white"
-                        href={project.github}
-                        target="_blank"
-                        variant="flat"
-                      >
-                        <FaGithub className="w-5 h-5" />
-                      </Button>
-                      <Button
-                        isIconOnly
-                        as={Link}
-                        className="dark:bg-gray-800 dark:text-gray-300 dark:hover:text-white"
-                        href={project.live}
-                        target="_blank"
-                        variant="flat"
-                      >
-                        <CiGlobe className="w-5 h-5" />
-                      </Button>
-                    </div>
-                  </div>
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <div className="group flex h-full flex-col rounded-2xl border border-default-200 bg-default-50/50 p-6 transition-colors hover:border-primary/40">
+      <div className="flex items-center justify-between">
+        <StatusPill status={project.status} />
+        <span className="font-mono text-xs text-default-400">
+          {project.year}
+        </span>
+      </div>
+      <h3 className="mt-4 text-xl font-semibold text-foreground">
+        {project.title}
+      </h3>
+      <p className="mt-1 text-sm text-primary">{project.tagline}</p>
+      <p className="mt-3 flex-grow text-sm text-default-600">
+        {project.description}
+      </p>
+      <div className="mt-5 space-y-4">
+        <Tech tech={project.tech} />
+        <ProjectLinks project={project} />
+      </div>
+    </div>
+  );
+}
 
-                  <p className="dark:text-gray-300">{project.description}</p>
+const Projects = () => {
+  const featured = projects.find((p) => p.featured);
+  const rest = projects.filter((p) => !p.featured);
 
-                  <div>
-                    <h4 className="dark:text-white font-semibold mb-2">
-                      Key Features:
-                    </h4>
-                    <ul className="space-y-1">
-                      {project.highlights.map((highlight) => (
-                        <li
-                          key={highlight}
-                          className="dark:text-gray-300 flex items-center space-x-2"
-                        >
-                          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 dark:bg-gray-800 dark:text-gray-300 rounded-full text-sm border border-gray-400 dark:border-gray-700"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </CardBody>
-            </Card>
+  return (
+    <section className="pt-24 sm:pt-28" id="work">
+      <SectionHeading eyebrow="Work" index="02" title="Selected projects" />
+      <div className="space-y-6">
+        {featured && (
+          <Reveal>
+            <FeaturedCard project={featured} />
+          </Reveal>
+        )}
+        <div className="grid gap-6 md:grid-cols-3">
+          {rest.map((project, i) => (
+            <Reveal key={project.title} delay={i * 0.08}>
+              <ProjectCard project={project} />
+            </Reveal>
           ))}
         </div>
+      </div>
+      <div className="mt-8">
+        <Link
+          isExternal
+          className="group inline-flex items-center gap-2 font-mono text-sm text-default-600 hover:text-primary"
+          href="https://github.com/Samylay?tab=repositories"
+        >
+          More on GitHub
+          <FaArrowRight
+            className="transition-transform group-hover:translate-x-1"
+            size={13}
+          />
+        </Link>
       </div>
     </section>
   );

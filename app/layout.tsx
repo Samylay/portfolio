@@ -1,29 +1,40 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import { fontSans, fontMono } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    default: siteConfig.title,
+    template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  icons: {
-    icon: "/favicon.ico",
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+  icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: light)", color: "#faf9f7" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0c0f" },
   ],
 };
 
@@ -39,25 +50,14 @@ export default function RootLayout({
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
+          fontMono.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex min-h-screen flex-col">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                title="nextui.org homepage"
-              >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">NextUI</p>
-              </Link>
-            </footer>
+            <main className="flex-grow">{children}</main>
+            <Footer />
           </div>
         </Providers>
       </body>

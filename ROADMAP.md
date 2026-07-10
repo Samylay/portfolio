@@ -18,3 +18,4 @@
 - [ ] **T05 — Shared-element project detail (GATED: only if a project detail view exists or Samy adds one)** (M) — framer-motion `layoutId` transition from project card → detail. If no detail view exists, leave unchecked with a note — do NOT invent new pages unattended. Verify: build passes; transition works in dev.
 
 ## Log
+- 2026-07-10: Samy approved unattended autoloop pushes to `main` (= production deploys via Vercel). The build-must-pass verify gate stands.

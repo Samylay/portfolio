@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ease-out-custom: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-custom: cubic-bezier(0.45, 0, 0.15, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-fast: 150ms;
+  --dur-base: 200ms;
+  --dur-slow: 300ms;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -9,6 +18,15 @@
   }
   ::selection {
     background-color: rgb(43 185 164 / 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

@@ -29,7 +29,7 @@ const Writing = () => {
                 </span>
               </span>
               <FaArrowRight
-                className="hidden shrink-0 text-default-400 transition-all group-hover:translate-x-1 group-hover:text-primary sm:mt-1 sm:block"
+                className="hidden shrink-0 text-default-400 transition-[transform,color] duration-150 ease-[var(--ease-out-custom)] group-hover:translate-x-1 group-hover:text-primary sm:mt-1 sm:block"
                 size={13}
               />
             </Link>

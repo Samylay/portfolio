@@ -66,7 +66,7 @@ function ProjectLinks({ project }: { project: Project }) {
 
 function FeaturedCard({ project }: { project: Project }) {
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-default-200 bg-gradient-to-br from-default-50 to-default-100/40 p-8 transition-colors hover:border-primary/40 sm:p-10">
+    <div className="group relative overflow-hidden rounded-3xl border border-default-200 bg-gradient-to-br from-default-50 to-default-100/40 p-8 transition-[border-color,transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg active:scale-[0.97] sm:p-10">
       <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/10 blur-3xl transition-opacity group-hover:opacity-80" />
       <div className="relative">
         <div className="flex items-center gap-3">
@@ -105,7 +105,7 @@ function FeaturedCard({ project }: { project: Project }) {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group flex h-full flex-col rounded-2xl border border-default-200 bg-default-50/50 p-6 transition-colors hover:border-primary/40">
+    <div className="group flex h-full flex-col rounded-2xl border border-default-200 bg-default-50/50 p-6 transition-[border-color,transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg active:scale-[0.97]">
       <div className="flex items-center justify-between">
         <StatusPill status={project.status} />
         <span className="font-mono text-xs text-default-400">

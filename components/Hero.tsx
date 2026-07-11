@@ -36,7 +36,7 @@ const Hero = () => {
           <div className="fade-up fade-up-4 mt-8 flex flex-wrap items-center gap-3">
             <Button
               as={Link}
-              className="font-medium"
+              className="font-medium transition-[transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]"
               color="primary"
               href={siteConfig.links.contact}
               radius="full"
@@ -47,6 +47,7 @@ const Hero = () => {
             <Button
               isExternal
               as={Link}
+              className="transition-[transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]"
               href={siteConfig.links.github}
               radius="full"
               startContent={<FaGithub size={18} />}
@@ -59,6 +60,7 @@ const Hero = () => {
               isIconOnly
               as={Link}
               aria-label="LinkedIn"
+              className="transition-[transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]"
               href={siteConfig.links.linkedin}
               radius="full"
               variant="bordered"

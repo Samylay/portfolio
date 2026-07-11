@@ -117,6 +117,7 @@ const Contact = () => {
               {...formik.getFieldProps("comment")}
             />
             <Button
+              className="transition-[transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]"
               color="primary"
               radius="full"
               size="lg"

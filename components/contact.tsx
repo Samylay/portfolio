@@ -50,21 +50,21 @@ const Contact = () => {
             </p>
             <div className="mt-6 flex flex-col gap-3 font-mono text-sm">
               <Link
-                className="text-default-600 hover:text-primary"
+                className="link-underline text-default-600 hover:text-primary"
                 href={siteConfig.links.email}
               >
                 layaida.samy@gmail.com
               </Link>
               <Link
                 isExternal
-                className="text-default-600 hover:text-primary"
+                className="link-underline text-default-600 hover:text-primary"
                 href={siteConfig.links.github}
               >
                 github.com/Samylay
               </Link>
               <Link
                 isExternal
-                className="text-default-600 hover:text-primary"
+                className="link-underline text-default-600 hover:text-primary"
                 href={siteConfig.links.linkedin}
               >
                 linkedin.com/in/samy-layaida

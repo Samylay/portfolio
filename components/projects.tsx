@@ -151,7 +151,7 @@ const Projects = () => {
       <div className="mt-8">
         <Link
           isExternal
-          className="group inline-flex items-center gap-2 font-mono text-sm text-default-600 hover:text-primary"
+          className="link-underline group inline-flex items-center gap-2 font-mono text-sm text-default-600 hover:text-primary"
           href="https://github.com/Samylay?tab=repositories"
         >
           More on GitHub

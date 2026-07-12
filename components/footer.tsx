@@ -16,7 +16,7 @@ export function Footer() {
         <div className="flex items-center gap-5 text-sm text-default-500">
           <Link
             isExternal
-            className="text-default-500 hover:text-primary"
+            className="link-underline text-default-500 hover:text-primary"
             href={siteConfig.links.github}
           >
             <span className="flex items-center gap-1.5">
@@ -25,13 +25,13 @@ export function Footer() {
           </Link>
           <Link
             isExternal
-            className="text-default-500 hover:text-primary"
+            className="link-underline text-default-500 hover:text-primary"
             href={siteConfig.links.linkedin}
           >
             LinkedIn
           </Link>
           <Link
-            className="text-default-500 hover:text-primary"
+            className="link-underline text-default-500 hover:text-primary"
             href={siteConfig.links.email}
           >
             Email

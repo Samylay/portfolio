@@ -53,7 +53,10 @@ export default function AboutPage() {
             </p>
             <p>
               Want to build something, or just compare homelab notes?{" "}
-              <Link className="text-primary" href={siteConfig.links.contact}>
+              <Link
+                className="link-underline text-primary"
+                href={siteConfig.links.contact}
+              >
                 Get in touch
               </Link>
               .

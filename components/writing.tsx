@@ -38,7 +38,7 @@ const Writing = () => {
       </div>
       <div className="mt-6">
         <Link
-          className="group inline-flex items-center gap-2 font-mono text-sm text-default-600 hover:text-primary"
+          className="link-underline group inline-flex items-center gap-2 font-mono text-sm text-default-600 hover:text-primary"
           href="/blog"
         >
           All posts

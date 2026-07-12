@@ -78,7 +78,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       <footer className="mt-16 border-t border-default-200 pt-8">
         <p className="text-default-500">
           Found this useful, or hit a variation of it?{" "}
-          <Link className="text-primary" href="/#contact">
+          <Link className="link-underline text-primary" href="/#contact">
             Let me know
           </Link>
           .

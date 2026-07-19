@@ -1,4 +1,8 @@
+"use client";
+
 import { Link } from "@nextui-org/link";
+import NextLink from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 
@@ -65,8 +69,18 @@ function ProjectLinks({ project }: { project: Project }) {
 }
 
 function FeaturedCard({ project }: { project: Project }) {
+  const reduce = useReducedMotion();
+
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-default-200 bg-gradient-to-br from-default-50 to-default-100/40 p-8 transition-[border-color,transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg active:scale-[0.97] sm:p-10">
+    <motion.div
+      className="group relative overflow-hidden rounded-3xl border border-default-200 bg-gradient-to-br from-default-50 to-default-100/40 p-8 transition-[border-color,transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg active:scale-[0.97] sm:p-10"
+      layoutId={reduce ? undefined : `project-card-${project.slug}`}
+    >
+      <NextLink
+        aria-label={project.title}
+        className="absolute inset-0 z-0"
+        href={`/projects/${project.slug}`}
+      />
       <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/10 blur-3xl transition-opacity group-hover:opacity-80" />
       <div className="relative">
         <div className="flex items-center gap-3">
@@ -78,9 +92,12 @@ function FeaturedCard({ project }: { project: Project }) {
             {project.year}
           </span>
         </div>
-        <h3 className="mt-4 text-3xl font-semibold tracking-tight text-foreground">
+        <motion.h3
+          className="mt-4 text-3xl font-semibold tracking-tight text-foreground"
+          layoutId={reduce ? undefined : `project-title-${project.slug}`}
+        >
           {project.title}
-        </h3>
+        </motion.h3>
         <p className="mt-1 text-lg text-primary">{project.tagline}</p>
         <p className="mt-4 max-w-2xl text-default-600">{project.description}</p>
         <ul className="mt-5 grid gap-2 sm:grid-cols-3">
@@ -94,36 +111,49 @@ function FeaturedCard({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
-        <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
+        <div className="relative z-10 mt-7 flex flex-wrap items-center justify-between gap-4">
           <Tech tech={project.tech} />
           <ProjectLinks project={project} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const reduce = useReducedMotion();
+
   return (
-    <div className="group flex h-full flex-col rounded-2xl border border-default-200 bg-default-50/50 p-6 transition-[border-color,transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg active:scale-[0.97]">
+    <motion.div
+      className="group relative flex h-full flex-col rounded-2xl border border-default-200 bg-default-50/50 p-6 transition-[border-color,transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg active:scale-[0.97]"
+      layoutId={reduce ? undefined : `project-card-${project.slug}`}
+    >
+      <NextLink
+        aria-label={project.title}
+        className="absolute inset-0 z-0"
+        href={`/projects/${project.slug}`}
+      />
       <div className="flex items-center justify-between">
         <StatusPill status={project.status} />
         <span className="font-mono text-xs text-default-400">
           {project.year}
         </span>
       </div>
-      <h3 className="mt-4 text-xl font-semibold text-foreground">
+      <motion.h3
+        className="mt-4 text-xl font-semibold text-foreground"
+        layoutId={reduce ? undefined : `project-title-${project.slug}`}
+      >
         {project.title}
-      </h3>
+      </motion.h3>
       <p className="mt-1 text-sm text-primary">{project.tagline}</p>
       <p className="mt-3 flex-grow text-sm text-default-600">
         {project.description}
       </p>
-      <div className="mt-5 space-y-4">
+      <div className="relative z-10 mt-5 space-y-4">
         <Tech tech={project.tech} />
         <ProjectLinks project={project} />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

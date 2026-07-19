@@ -1,4 +1,5 @@
 export type Project = {
+  slug: string;
   title: string;
   tagline: string;
   description: string;
@@ -13,6 +14,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "lifeos",
     title: "LifeOS",
     tagline:
       "A single hub for health, fitness, work, and everything in between",
@@ -30,6 +32,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "layaida-ecole",
     title: "Layaida — École",
     tagline: "An e-learning platform for a growing school",
     description:
@@ -46,6 +49,7 @@ export const projects: Project[] = [
     live: "https://ecole.samylayaida.com",
   },
   {
+    slug: "trackit",
     title: "TrackIt",
     tagline: "A habit tracker built on a floor you can always hit",
     description:
@@ -61,6 +65,7 @@ export const projects: Project[] = [
     github: "https://github.com/Samylay/trackit",
   },
   {
+    slug: "strava-dashboard",
     title: "Strava Dashboard",
     tagline: "Training performance, read the way an athlete thinks",
     description:

@@ -4,6 +4,7 @@ import { Link } from "@nextui-org/link";
 import { FaArrowLeft } from "react-icons/fa";
 
 import { posts, getPost, formatDate } from "@/config/posts";
+import { siteConfig } from "@/config/site";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -37,8 +38,26 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
   const { Content } = post;
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    url: `${siteConfig.url}/blog/${post.slug}`,
+    author: {
+      "@type": "Person",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  };
+
   return (
     <article className="mx-auto max-w-2xl">
+      <script
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        type="application/ld+json"
+      />
       <Link
         className="group inline-flex items-center gap-2 font-mono text-sm text-default-500 hover:text-primary"
         href="/blog"

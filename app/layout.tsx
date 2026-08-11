@@ -38,6 +38,16 @@ export const viewport: Viewport = {
   ],
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  jobTitle: "Software Engineer",
+  description: siteConfig.description,
+  sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -45,7 +55,12 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head />
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          type="application/ld+json"
+        />
+      </head>
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",

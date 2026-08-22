@@ -66,18 +66,48 @@ export const projects: Project[] = [
   },
   {
     slug: "strava-dashboard",
-    title: "Strava Dashboard",
-    tagline: "Training performance, read the way an athlete thinks",
+    title: "Strava Dashboard & MCP Server",
+    tagline: "Training data my AI tools can actually reason about",
     description:
-      "A training-performance dashboard on top of the Strava API, plus a companion MCP server that exposes the same data to AI tools. Turns raw activity streams into trends that actually inform the next session.",
+      "A training-performance dashboard on top of the Strava API, with a companion MCP server that exposes the same data to Claude and other AI tools. The MCP layer is the interesting half: a typed interface that turns raw activity streams into something a model can query and reason over.",
     year: "2026",
     status: "Active",
-    tech: ["TypeScript", "Strava API", "MCP", "Charts"],
+    tech: ["TypeScript", "Strava API", "MCP", "Claude"],
     highlights: [
-      "Activity trends and load from the Strava API",
-      "Companion MCP server for AI-assisted analysis",
-      "Focus on signal over vanity metrics",
+      "MCP server exposing training data to AI tools",
+      "Typed tool interface over raw activity streams",
+      "Signal over vanity metrics",
     ],
     github: "https://github.com/Samylay/strava-dashboard",
+  },
+
+  {
+    slug: "agent-skills",
+    title: "Agent Skills at Work",
+    tagline: "Teaching coding agents the parts of our codebase they can't guess",
+    description:
+      "I write skills and agent workflows for my day job: structured knowledge files and tool definitions that let coding agents work productively in a large production codebase. Mostly about learning what an agent needs to know, and what it will confidently get wrong if you don't tell it.",
+    year: "2026",
+    status: "Active",
+    tech: ["Claude Code", "Agents", "Prompt design"],
+    highlights: [
+      "Skill authoring for production codebases",
+      "Agent workflows with human checkpoints",
+      "Ongoing: what agents actually need vs. what people assume they need",
+    ],
+  },
+  {
+    slug: "homelab-knowledge-base",
+    title: "Homelab Knowledge Base",
+    tagline: "Everything I know, in a form I can query",
+    description:
+      "A self-hosted knowledge base on my homelab: notes, docs and runbooks indexed so that both I and my AI tools can search them. Doubles as my test bed for retrieval and grounding — when I want to learn how RAG behaves on real data, this is where I do it.",
+    year: "2026",
+    status: "Self-hosted",
+    tech: ["Python", "Retrieval", "Self-hosted"],
+    highlights: [
+      "Personal notes and runbooks, indexed for humans and models",
+      "Playground for retrieval and grounding experiments",
+    ],
   },
 ];

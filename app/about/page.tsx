@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Samy Layaida — full-stack software engineer in Paris who builds web products and self-hosts the infrastructure behind them.",
+    "Samy Layaida — full-stack engineer in Paris working with AI. Web apps by trade; agents, MCP servers and LLM tooling by obsession.",
 };
 
 export default function AboutPage() {
@@ -27,15 +27,18 @@ export default function AboutPage() {
         <Reveal>
           <Prose>
             <p className="lead">
-              Full-stack engineer in Paris. I like taking an idea from empty
-              repo to something people use — then keeping it that way.
+              Full-stack engineer in Paris. I build web apps for a living and
+              spend most of my free time figuring out what AI tools can
+              actually do — beyond the demos.
             </p>
             <p>
-              Most of my work lives in the TypeScript / React / Next.js world,
-              with Node, PHP/Symfony and a few SQL and NoSQL databases behind
-              it. Lately a lot of my energy goes into <strong>LifeOS</strong>, a
-              self-hosted hub that pulls health, habits, work and finances into
-              one place I fully control.
+              My day job is TypeScript / React / Next.js, with Node,
+              PHP/Symfony and a few SQL and NoSQL databases behind it. My
+              current obsession is the AI tooling layer: writing agent skills
+              at work, building MCP servers, and running retrieval experiments
+              on my own knowledge base. I&apos;m deliberately steering my
+              career toward AI engineering without pretending the switch is
+              done.
             </p>
             <p>
               Outside of app code, I run a <strong>homelab</strong>: a stack of

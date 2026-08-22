@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Samy Layaida",
   title: "Samy Layaida — Software Engineer",
   description:
-    "Full-stack software engineer in Paris. I build web apps end to end and run a self-hosted homelab. Projects, writing, and how to reach me.",
+    "Full-stack engineer in Paris working with AI. Web apps in TypeScript and React; agents, MCP servers and LLM tooling on the side. Projects, writing, and how to reach me.",
   url: "https://samylayaida.com",
   navItems: [
     { label: "Work", href: "/#work" },

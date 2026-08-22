@@ -15,8 +15,8 @@ const Hero = () => {
           </h1>
 
           <p className="fade-up fade-up-2 mt-5 max-w-xl text-lg leading-relaxed text-default-600 sm:text-xl">
-            Software engineer in Paris. By day I ship web apps; the rest of
-            the time I&apos;m learning new technologies and tinkering.
+            By day I ship web apps; the rest of the time I&apos;m
+            learning new technologies and tinkering.
           </p>
 
           <div className="fade-up fade-up-3 mt-8 flex flex-wrap items-center gap-3">

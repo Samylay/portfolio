@@ -11,14 +11,12 @@ const Hero = () => {
       <div className="flex flex-col-reverse items-start gap-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="max-w-2xl">
           <h1 className="fade-up font-display text-4xl font-medium leading-[1.08] tracking-tight text-foreground sm:text-6xl">
-            Hi, I&apos;m Samy. I build web apps and keep them running.
+            Samy Layaida. Software engineer in Paris.
           </h1>
 
           <p className="fade-up fade-up-2 mt-5 max-w-xl text-lg leading-relaxed text-default-600 sm:text-xl">
-            Full-stack software engineer in Paris. Most of my work is
-            TypeScript and React; the parts I can&apos;t help tinkering with
-            run on servers at home. Currently employed, always happy to hear
-            about interesting problems.
+            I build web apps in TypeScript and React, then keep them running.
+            Employed, open to interesting problems.
           </p>
 
           <div className="fade-up fade-up-3 mt-8 flex flex-wrap items-center gap-3">

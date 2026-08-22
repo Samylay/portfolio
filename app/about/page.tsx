@@ -27,10 +27,8 @@ export default function AboutPage() {
         <Reveal>
           <Prose>
             <p className="lead">
-              I&apos;m a full-stack software engineer based in Paris. I like
-              taking an idea all the way from an empty repo to something people
-              actually use — and then owning the boring parts that keep it
-              running.
+              Full-stack engineer in Paris. I like taking an idea from empty
+              repo to something people use — then keeping it that way.
             </p>
             <p>
               Most of my work lives in the TypeScript / React / Next.js world,

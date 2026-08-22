@@ -4,22 +4,18 @@ import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export function SectionHeading({
-  index,
   eyebrow,
   title,
 }: {
-  index: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
 }) {
   return (
     <div className="mb-8">
-      <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-primary">
-        <span>{index}</span>
-        <span className="h-px w-8 bg-primary/50" />
-        <span className="text-default-500">{eyebrow}</span>
-      </div>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+      <p className="font-mono text-xs uppercase tracking-[0.18em] text-default-500">
+        {eyebrow}
+      </p>
+      <h2 className="mt-2 font-display text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
         {title}
       </h2>
     </div>

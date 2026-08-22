@@ -2,7 +2,6 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Input, Textarea } from "@nextui-org/input";
-import { Select, SelectItem } from "@nextui-org/react";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 
@@ -10,28 +9,17 @@ import { SectionHeading, Reveal } from "@/components/section";
 import { siteConfig } from "@/config/site";
 
 const Contact = () => {
-  const inquiryTypes = [
-    {
-      label: "Freelance project proposal",
-      value: "Freelance project proposal",
-    },
-    { label: "Collaboration", value: "Collaboration" },
-    { label: "Feedback", value: "Feedback" },
-    { label: "Other", value: "Other" },
-  ];
-
   const formik = useFormik({
-    initialValues: { firstName: "", email: "", type: "Other", comment: "" },
+    initialValues: { firstName: "", email: "", comment: "" },
     validationSchema: Yup.object({
       firstName: Yup.string().required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
-      type: Yup.string(),
       comment: Yup.string()
         .min(25, "Must be at least 25 characters")
         .required("Required"),
     }),
     onSubmit: (values) => {
-      const subject = `${values.type} — ${values.firstName}`;
+      const subject = `Hello from ${values.firstName}`;
       const body = `${values.comment}\n\n— ${values.firstName} (${values.email})`;
 
       window.location.href = `mailto:layaida.samy@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -40,13 +28,13 @@ const Contact = () => {
 
   return (
     <section className="pt-24 sm:pt-28" id="contact">
-      <SectionHeading eyebrow="Contact" index="04" title="Let's talk" />
+      <SectionHeading eyebrow="Contact" title="Let's talk" />
       <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
           <div>
             <p className="text-default-600">
-              Have a project, a role, or an idea worth building? Send a note and
-              I&apos;ll get back to you. You can also reach me directly:
+              Have something worth building, or just want to compare notes?
+              Send a message here or reach me directly — I read everything:
             </p>
             <div className="mt-6 flex flex-col gap-3 font-mono text-sm">
               <Link
@@ -96,18 +84,6 @@ const Contact = () => {
                 {...formik.getFieldProps("email")}
               />
             </div>
-            <Select
-              defaultSelectedKeys={["Other"]}
-              label="Type of enquiry"
-              variant="bordered"
-              {...formik.getFieldProps("type")}
-            >
-              {inquiryTypes.map((type) => (
-                <SelectItem key={type.value} value={type.value}>
-                  {type.label}
-                </SelectItem>
-              ))}
-            </Select>
             <Textarea
               errorMessage={formik.touched.comment && formik.errors.comment}
               isInvalid={formik.touched.comment && !!formik.errors.comment}

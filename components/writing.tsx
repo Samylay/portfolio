@@ -9,7 +9,7 @@ const Writing = () => {
 
   return (
     <section className="pt-24 sm:pt-28" id="writing">
-      <SectionHeading eyebrow="Blog" index="03" title="Writing" />
+      <SectionHeading eyebrow="Blog" title="Writing" />
       <div className="divide-y divide-default-200 border-y border-default-200">
         {recent.map((post, i) => (
           <Reveal key={post.slug} delay={i * 0.06}>

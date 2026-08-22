@@ -10,19 +10,8 @@ import { projects, type Project } from "@/config/projects";
 import { SectionHeading, Reveal } from "@/components/section";
 
 function StatusPill({ status }: { status: Project["status"] }) {
-  const tone =
-    status === "Live"
-      ? "text-emerald-500 border-emerald-500/30 bg-emerald-500/10"
-      : status === "Self-hosted"
-        ? "text-primary border-primary/30 bg-primary/10"
-        : status === "Archived"
-          ? "text-default-500 border-default-300 bg-default-100"
-          : "text-amber-500 border-amber-500/30 bg-amber-500/10";
-
   return (
-    <span
-      className={`rounded-full border px-2.5 py-0.5 font-mono text-[0.68rem] uppercase tracking-wide ${tone}`}
-    >
+    <span className="font-mono text-[0.7rem] uppercase tracking-wide text-default-500">
       {status}
     </span>
   );
@@ -73,7 +62,7 @@ function FeaturedCard({ project }: { project: Project }) {
 
   return (
     <motion.div
-      className="group relative overflow-hidden rounded-3xl border border-default-200 bg-gradient-to-br from-default-50 to-default-100/40 p-8 transition-[border-color,transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg active:scale-[0.97] sm:p-10"
+      className="group relative overflow-hidden rounded-2xl border border-default-200 bg-default-50/50 p-8 transition-[border-color,transform,box-shadow] duration-200 ease-[var(--ease-out-custom)] hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg active:scale-[0.97] sm:p-10"
       layoutId={reduce ? undefined : `project-card-${project.slug}`}
     >
       <NextLink
@@ -81,19 +70,15 @@ function FeaturedCard({ project }: { project: Project }) {
         className="absolute inset-0 z-0"
         href={`/projects/${project.slug}`}
       />
-      <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/10 blur-3xl transition-opacity group-hover:opacity-80" />
       <div className="relative">
         <div className="flex items-center gap-3">
-          <span className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
-            Featured
-          </span>
-          <StatusPill status={project.status} />
+<StatusPill status={project.status} />
           <span className="font-mono text-xs text-default-400">
             {project.year}
           </span>
         </div>
         <motion.h3
-          className="mt-4 text-3xl font-semibold tracking-tight text-foreground"
+          className="mt-4 font-display text-3xl font-medium tracking-tight text-foreground"
           layoutId={reduce ? undefined : `project-title-${project.slug}`}
         >
           {project.title}
@@ -140,7 +125,7 @@ function ProjectCard({ project }: { project: Project }) {
         </span>
       </div>
       <motion.h3
-        className="mt-4 text-xl font-semibold text-foreground"
+        className="mt-4 font-display text-xl font-medium text-foreground"
         layoutId={reduce ? undefined : `project-title-${project.slug}`}
       >
         {project.title}
@@ -163,7 +148,7 @@ const Projects = () => {
 
   return (
     <section className="pt-24 sm:pt-28" id="work">
-      <SectionHeading eyebrow="Work" index="02" title="Selected projects" />
+      <SectionHeading eyebrow="Work" title="Selected projects" />
       <div className="space-y-6">
         {featured && (
           <Reveal>

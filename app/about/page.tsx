@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Samy Layaida — full-stack engineer in Paris working with AI. Web apps by trade; agents, MCP servers and LLM tooling by obsession.",
+    "Samy Layaida — software engineer in Paris. Web apps by day; agents, MCP servers and self-hosted tools the rest of the time.",
 };
 
 export default function AboutPage() {
@@ -27,18 +27,20 @@ export default function AboutPage() {
         <Reveal>
           <Prose>
             <p className="lead">
-              Full-stack engineer in Paris. I build web apps for a living and
-              spend most of my free time figuring out what AI tools can
-              actually do — beyond the demos.
+              Hey, I&apos;m Samy. Software engineer in Paris.
             </p>
             <p>
-              My day job is TypeScript / React / Next.js, with Node,
-              PHP/Symfony and a few SQL and NoSQL databases behind it. My
-              current obsession is the AI tooling layer: writing agent skills
-              at work, building MCP servers, and running retrieval experiments
-              on my own knowledge base. I&apos;m deliberately steering my
-              career toward AI engineering without pretending the switch is
-              done.
+              I got into AI early — not the research side, the &ldquo;wait,
+              I can build with this&rdquo; side. Most of what I know about
+              agents, MCP and LLM tooling comes from breaking real things on
+              my own servers, then writing down why they broke.
+            </p>
+            <p>
+              My day job is full-stack development. My nights go to{" "}
+              <strong>LifeOS</strong> (the dashboard my daily life runs on), a
+              school&apos;s e-learning platform, and an ever-growing pile of
+              homelab services that mostly stay up. Next up on my own time: the
+              AWS Solutions Architect Associate certification.
             </p>
             <p>
               Outside of app code, I run a <strong>homelab</strong>: a stack of

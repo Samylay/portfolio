@@ -4,7 +4,7 @@ export type Project = {
   tagline: string;
   description: string;
   year: string;
-  status: "Live" | "Self-hosted" | "Active" | "Archived";
+  status: "Live" | "Self-hosted" | "Active" | "Evolving" | "Archived";
   tech: string[];
   highlights: string[];
   github?: string;
@@ -67,16 +67,15 @@ export const projects: Project[] = [
   {
     slug: "strava-dashboard",
     title: "Strava Dashboard & MCP Server",
-    tagline: "Training data my AI tools can actually reason about",
+    tagline: "Training analytics my agents can read",
     description:
-      "A training-performance dashboard on top of the Strava API, with a companion MCP server that exposes the same data to Claude and other AI tools. The MCP layer is the interesting half: a typed interface that turns raw activity streams into something a model can query and reason over.",
+      "Training analytics plus an MCP server, so my agents can read my training load as typed tools instead of a JSON dump. Started as a way for my agents to track my workouts and progress; the official Strava MCP has since covered part of that ground, so this one is evolving.",
     year: "2026",
-    status: "Active",
-    tech: ["TypeScript", "Strava API", "MCP", "Claude"],
+    status: "Evolving",
+    tech: ["TypeScript", "Strava API", "MCP"],
     highlights: [
-      "MCP server exposing training data to AI tools",
-      "Typed tool interface over raw activity streams",
-      "Signal over vanity metrics",
+      "MCP server exposing training data as typed tools",
+      "Originally built so agents could track workout progress",
     ],
     github: "https://github.com/Samylay/strava-dashboard",
   },
@@ -86,14 +85,13 @@ export const projects: Project[] = [
     title: "Agent Skills at Work",
     tagline: "Teaching coding agents the parts of our codebase they can't guess",
     description:
-      "I write skills and agent workflows for my day job: structured knowledge files and tool definitions that let coding agents work productively in a large production codebase. Mostly about learning what an agent needs to know, and what it will confidently get wrong if you don't tell it.",
+      "I write skills for coding agents for different needs at work. Turns out the hard part is figuring out what an agent needs to know, and what it'll confidently get wrong if you don't tell it.",
     year: "2026",
     status: "Active",
     tech: ["Claude Code", "Agents", "Prompt design"],
     highlights: [
-      "Skill authoring for production codebases",
-      "Agent workflows with human checkpoints",
-      "Ongoing: what agents actually need vs. what people assume they need",
+      "Skills for coding agents across different needs",
+      "Learning what agents actually need vs. what people assume",
     ],
   },
   {
@@ -101,13 +99,13 @@ export const projects: Project[] = [
     title: "Homelab Knowledge Base",
     tagline: "Everything I know, in a form I can query",
     description:
-      "A self-hosted knowledge base on my homelab: notes, docs and runbooks indexed so that both I and my AI tools can search them. Doubles as my test bed for retrieval and grounding — when I want to learn how RAG behaves on real data, this is where I do it.",
+      "Everything I know, indexed where both I and my models can reach it. Doubles as my RAG test bed.",
     year: "2026",
     status: "Self-hosted",
     tech: ["Python", "Retrieval", "Self-hosted"],
     highlights: [
-      "Personal notes and runbooks, indexed for humans and models",
-      "Playground for retrieval and grounding experiments",
+      "Notes, docs and runbooks indexed for humans and models",
+      "Test bed for retrieval experiments",
     ],
   },
 ];

@@ -33,7 +33,7 @@ const Contact = () => {
         <Reveal>
           <div>
             <p className="text-default-600">
-              Have something worth building? Write to me here or directly:
+              Building something, or stuck on something? Write to me here or directly:
             </p>
             <div className="mt-6 flex flex-col gap-3 font-mono text-sm">
               <Link

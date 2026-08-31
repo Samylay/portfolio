@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 
 import { projects } from "@/config/projects";
 import { ProjectDetail } from "@/components/project-detail";
-import { SpotlessProjectDetail } from "@/components/spotless-portfolio";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -29,19 +28,10 @@ export function generateMetadata({
   };
 }
 
-export default function ProjectPage({
-  params,
-  searchParams,
-}: {
-  params: { slug: string };
-  searchParams?: { param?: string };
-}) {
+export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) notFound();
-
-  if (searchParams?.param === "toto")
-    return <SpotlessProjectDetail project={project} />;
 
   return <ProjectDetail project={project} />;
 }

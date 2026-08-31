@@ -4,15 +4,8 @@ import Projects from "@/components/projects";
 import Writing from "@/components/writing";
 import Contact from "@/components/contact";
 import BackToTopButton from "@/components/BackToTopButton";
-import { SpotlessPortfolio } from "@/components/spotless-portfolio";
 
-export default function Home({
-  searchParams,
-}: {
-  searchParams?: { param?: string };
-}) {
-  if (searchParams?.param === "toto") return <SpotlessPortfolio />;
-
+export default function Home() {
   return (
     <div className="mx-auto w-full max-w-5xl px-6 pb-16">
       <Hero />

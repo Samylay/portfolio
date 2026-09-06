@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans, fontMono, fontDisplay } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Particles } from "@/components/particles";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -56,9 +57,12 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
+            <Particles className="pointer-events-none fixed inset-0 z-0 text-foreground" />
+            <div className="relative z-10 flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
           </div>
         </Providers>
       </body>

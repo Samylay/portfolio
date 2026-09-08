@@ -64,48 +64,4 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/Samylay/trackit",
   },
-  {
-    slug: "strava-dashboard",
-    title: "Strava Dashboard & MCP Server",
-    tagline: "Training analytics my agents can read",
-    description:
-      "Training analytics plus an MCP server, so my agents can read my training load as typed tools instead of a JSON dump. Started as a way for my agents to track my workouts and progress; the official Strava MCP has since covered part of that ground, so this one is evolving.",
-    year: "2026",
-    status: "Evolving",
-    tech: ["TypeScript", "Strava API", "MCP"],
-    highlights: [
-      "MCP server exposing training data as typed tools",
-      "Originally built so agents could track workout progress",
-    ],
-    github: "https://github.com/Samylay/strava-dashboard",
-  },
-
-  {
-    slug: "agent-skills",
-    title: "Agent Skills at Work",
-    tagline: "Teaching coding agents the parts of our codebase they can't guess",
-    description:
-      "I write skills for coding agents for different needs at work. Turns out the hard part is figuring out what an agent needs to know, and what it'll confidently get wrong if you don't tell it.",
-    year: "2026",
-    status: "Active",
-    tech: ["Claude Code", "Agents", "Prompt design"],
-    highlights: [
-      "Skills for coding agents across different needs",
-      "Learning what agents actually need vs. what people assume",
-    ],
-  },
-  {
-    slug: "homelab-knowledge-base",
-    title: "Homelab Knowledge Base",
-    tagline: "Everything I know, in a form I can query",
-    description:
-      "Everything I know, indexed where both I and my models can reach it. Doubles as my RAG test bed.",
-    year: "2026",
-    status: "Self-hosted",
-    tech: ["Python", "Retrieval", "Self-hosted"],
-    highlights: [
-      "Notes, docs and runbooks indexed for humans and models",
-      "Test bed for retrieval experiments",
-    ],
-  },
 ];

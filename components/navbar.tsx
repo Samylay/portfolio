@@ -16,8 +16,9 @@ import { useState } from "react";
 import clsx from "clsx";
 
 import { siteConfig } from "@/config/site";
+import { BrandLogo } from "@/components/brand-logo";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { GithubIcon, Logo } from "@/components/icons";
+import { GithubIcon } from "@/components/icons";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -42,7 +43,7 @@ export const Navbar = () => {
             href="/"
             onClick={() => setIsMenuOpen(false)}
           >
-            <Logo />
+            <BrandLogo />
             <span className="font-mono text-sm font-semibold tracking-tight text-foreground">
               samy<span className="text-primary">.</span>layaida
             </span>

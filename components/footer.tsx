@@ -3,6 +3,7 @@ import { Link } from "@nextui-org/link";
 import { siteConfig } from "@/config/site";
 import { BrandLogo } from "@/components/brand-logo";
 import { GithubIcon } from "@/components/icons";
+import { TrackedExternalLink } from "@/components/analytics";
 
 export function Footer() {
   return (
@@ -18,27 +19,31 @@ export function Footer() {
           </div>
         </div>
         <div className="flex items-center gap-5 text-sm text-default-500">
-          <Link
-            isExternal
+          <TrackedExternalLink
             className="link-underline text-default-500 hover:text-primary"
             href={siteConfig.links.github}
           >
             <span className="flex items-center gap-1.5">
               <GithubIcon size={18} /> GitHub
             </span>
-          </Link>
-          <Link
-            isExternal
+          </TrackedExternalLink>
+          <TrackedExternalLink
             className="link-underline text-default-500 hover:text-primary"
             href={siteConfig.links.linkedin}
           >
             LinkedIn
-          </Link>
+          </TrackedExternalLink>
           <Link
             className="link-underline text-default-500 hover:text-primary"
             href={siteConfig.links.email}
           >
             Email
+          </Link>
+          <Link
+            className="link-underline text-default-500 hover:text-primary"
+            href="/privacy"
+          >
+            Privacy
           </Link>
         </div>
       </div>

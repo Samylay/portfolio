@@ -1,6 +1,5 @@
 "use client";
 
-import { Link } from "@nextui-org/link";
 import NextLink from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
@@ -8,6 +7,7 @@ import { FiExternalLink } from "react-icons/fi";
 
 import { projects, type Project } from "@/config/projects";
 import { SectionHeading, Reveal } from "@/components/section";
+import { TrackedExternalLink } from "@/components/analytics";
 
 function StatusPill({ status }: { status: Project["status"] }) {
   return (
@@ -36,22 +36,20 @@ function ProjectLinks({ project }: { project: Project }) {
   return (
     <div className="flex items-center gap-4 text-sm">
       {project.github && (
-        <Link
-          isExternal
+        <TrackedExternalLink
           className="flex items-center gap-1.5 text-default-600 hover:text-primary"
           href={project.github}
         >
           <FaGithub size={16} /> Code
-        </Link>
+        </TrackedExternalLink>
       )}
       {project.live && (
-        <Link
-          isExternal
+        <TrackedExternalLink
           className="flex items-center gap-1.5 text-default-600 hover:text-primary"
           href={project.live}
         >
           <FiExternalLink size={16} /> Live
-        </Link>
+        </TrackedExternalLink>
       )}
     </div>
   );
@@ -164,8 +162,7 @@ const Projects = () => {
         </div>
       </div>
       <div className="mt-8">
-        <Link
-          isExternal
+        <TrackedExternalLink
           className="link-underline group inline-flex items-center gap-2 font-mono text-sm text-default-600 hover:text-primary"
           href="https://github.com/Samylay?tab=repositories"
         >
@@ -174,7 +171,7 @@ const Projects = () => {
             className="transition-transform group-hover:translate-x-1"
             size={13}
           />
-        </Link>
+        </TrackedExternalLink>
       </div>
     </section>
   );

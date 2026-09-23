@@ -19,6 +19,7 @@ import { siteConfig } from "@/config/site";
 import { BrandLogo } from "@/components/brand-logo";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { GithubIcon } from "@/components/icons";
+import { TrackedExternalLink } from "@/components/analytics";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -69,14 +70,13 @@ export const Navbar = () => {
 
       <NavbarContent justify="end">
         <NavbarItem className="flex items-center gap-3">
-          <Link
-            isExternal
+          <TrackedExternalLink
             aria-label="GitHub"
             className="text-default-500 hover:text-primary"
             href={siteConfig.links.github}
           >
             <GithubIcon size={20} />
-          </Link>
+          </TrackedExternalLink>
           <ThemeSwitch />
         </NavbarItem>
         <NavbarMenuToggle className="sm:hidden" />

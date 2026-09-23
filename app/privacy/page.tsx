@@ -3,15 +3,15 @@ import { Link } from "@nextui-org/link";
 
 import { Prose } from "@/components/prose";
 import { Reveal } from "@/components/section";
+import { AnalyticsSettings } from "@/components/analytics";
 
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "How LifeOS, a single-user self-hosted application, handles personal and bank account data.",
+    "How this portfolio site uses analytics and handles contact messages.",
 };
 
-// Last substantive change. Update when the policy text changes, not on redeploy.
-const UPDATED = "15 August 2026";
+const UPDATED = "23 September 2026";
 
 export default function PrivacyPage() {
   return (
@@ -23,19 +23,16 @@ export default function PrivacyPage() {
         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
           Privacy policy
         </h1>
-        <p className="mt-4 text-sm text-default-500">
-          Last updated {UPDATED}
-        </p>
+        <p className="mt-4 text-sm text-default-500">Last updated {UPDATED}</p>
       </header>
 
       <div className="mt-10">
         <Reveal>
           <Prose>
             <p className="lead">
-              LifeOS is a personal application with exactly one user: me, Samy
-              Layaida. It is not a product, it is not offered to anyone else,
-              and there is no sign-up. This page exists because services I
-              connect to my own accounts reasonably ask for it.
+              This website is the personal portfolio of Samy Layaida. This
+              policy explains the limited analytics used on the site and what
+              happens when you contact me.
             </p>
 
             <h2>Who is responsible</h2>
@@ -47,61 +44,49 @@ export default function PrivacyPage() {
               .
             </p>
 
-            <h2>What data is processed</h2>
-            <ul>
-              <li>
-                <strong>Bank account data</strong> — account details, balances
-                and transaction history for accounts I own, retrieved through a
-                licensed account information service provider that I authorise
-                myself at my own bank.
-              </li>
-              <li>
-                <strong>Personal productivity data</strong> — notes, tasks,
-                habits, training and health figures that I enter myself or sync
-                from services I already use.
-              </li>
-            </ul>
+            <h2>Analytics</h2>
             <p>
-              No data belonging to any other person is collected, because no
-              other person has an account.
+              If you allow analytics, this site uses PostHog to count page views
+              and clicks on external links. Click events record the destination
+              category (GitHub, LinkedIn, or another external site) and the page
+              path. PostHog may also receive standard browser and referral
+              information. The site does not ask PostHog to collect IP-based
+              location, identify you by name or email, record sessions, or
+              automatically capture clicks or form contents.
+            </p>
+            <p>
+              Analytics are optional. Choose “Allow analytics” or “Reject” in
+              the site prompt. You can change your choice here at any time. If
+              you allow analytics, a pseudonymous browser identifier may be used
+              to group that browser’s events. PostHog Cloud processes the data;
+              the site is configured for its EU endpoint by default. The
+              project’s retention settings control how long event data is kept.
+            </p>
+            <p>
+              <AnalyticsSettings />
             </p>
 
-            <h2>Why</h2>
+            <h2>Contact messages</h2>
             <p>
-              To see my own subscriptions and spending in one place. The lawful
-              basis is consent, which I give myself at my own bank and can
-              withdraw at any time.
+              The contact form opens your email application with the message you
+              entered. This site does not submit or store the form contents. If
+              you email me, I use your message and address to reply and keep the
+              correspondence as needed.
             </p>
 
-            <h2>Where it is stored</h2>
+            <h2>Hosting</h2>
             <p>
-              On hardware I own and administer, in a local database, reachable
-              only over a private network. It is not hosted with a cloud
-              provider, not shared with third parties, not sold, not used for
-              advertising, and not used to train anything.
+              Vercel hosts this website and may process technical connection
+              data in order to deliver and secure it. Analytics events are sent
+              separately to PostHog only after you allow them.
             </p>
 
-            <h2>How long</h2>
+            <h2>Your choices and rights</h2>
             <p>
-              Bank data is kept while I keep using the application and is
-              deleted when I stop. Bank access consent expires automatically
-              after 180 days under EEA rules and has to be renewed deliberately
-              — access is not open-ended.
-            </p>
-
-            <h2>Sub-processors</h2>
-            <p>
-              Only the account information service provider that performs the
-              bank connection. It is the licensed party in the arrangement and
-              handles the bank authorisation on my behalf.
-            </p>
-
-            <h2>Rights</h2>
-            <p>
-              Access, rectification, erasure, portability and withdrawal of
-              consent apply. As the only data subject and the only controller, I
-              exercise them directly against my own database, and I can revoke
-              bank access at my bank at any time.
+              You can reject or withdraw analytics permission using the
+              preference control above. You can also contact me to ask about
+              personal data related to correspondence or to exercise applicable
+              data protection rights.
             </p>
           </Prose>
         </Reveal>

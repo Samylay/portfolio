@@ -6,6 +6,7 @@ import { FaGithub, FaArrowLeft } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 
 import { type Project } from "@/config/projects";
+import { TrackedExternalLink } from "@/components/analytics";
 
 export function ProjectDetail({ project }: { project: Project }) {
   const reduce = useReducedMotion();
@@ -74,22 +75,20 @@ export function ProjectDetail({ project }: { project: Project }) {
         {(project.github || project.live) && (
           <div className="mt-7 flex items-center gap-4 text-sm">
             {project.github && (
-              <Link
-                isExternal
+              <TrackedExternalLink
                 className="flex items-center gap-1.5 text-default-600 hover:text-primary"
                 href={project.github}
               >
                 <FaGithub size={16} /> Code
-              </Link>
+              </TrackedExternalLink>
             )}
             {project.live && (
-              <Link
-                isExternal
+              <TrackedExternalLink
                 className="flex items-center gap-1.5 text-default-600 hover:text-primary"
                 href={project.live}
               >
                 <FiExternalLink size={16} /> Live
-              </Link>
+              </TrackedExternalLink>
             )}
           </div>
         )}

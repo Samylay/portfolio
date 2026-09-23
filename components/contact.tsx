@@ -7,6 +7,7 @@ import { Link } from "@nextui-org/link";
 
 import { SectionHeading, Reveal } from "@/components/section";
 import { siteConfig } from "@/config/site";
+import { TrackedExternalLink } from "@/components/analytics";
 
 const Contact = () => {
   const formik = useFormik({
@@ -42,20 +43,18 @@ const Contact = () => {
               >
                 layaida.samy@gmail.com
               </Link>
-              <Link
-                isExternal
+              <TrackedExternalLink
                 className="link-underline text-default-600 hover:text-primary"
                 href={siteConfig.links.github}
               >
                 github.com/Samylay
-              </Link>
-              <Link
-                isExternal
+              </TrackedExternalLink>
+              <TrackedExternalLink
                 className="link-underline text-default-600 hover:text-primary"
                 href={siteConfig.links.linkedin}
               >
                 linkedin.com/in/samy-layaida
-              </Link>
+              </TrackedExternalLink>
             </div>
           </div>
         </Reveal>

@@ -1,9 +1,12 @@
+"use client";
+
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import Image from "next/image";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 import { siteConfig } from "@/config/site";
+import { trackOutboundClick } from "@/components/analytics";
 
 const Hero = () => {
   return (
@@ -38,6 +41,7 @@ const Hero = () => {
               radius="sm"
               startContent={<FaGithub size={18} />}
               variant="bordered"
+              onClick={() => trackOutboundClick("github")}
             >
               GitHub
             </Button>
@@ -49,6 +53,7 @@ const Hero = () => {
               href={siteConfig.links.linkedin}
               radius="sm"
               variant="bordered"
+              onClick={() => trackOutboundClick("linkedin")}
             >
               <FaLinkedinIn size={16} />
             </Button>

@@ -38,6 +38,7 @@ export function Reveal({
   return (
     <motion.div
       className={className}
+      data-reveal
       initial={{ opacity: 0, y: 18 }}
       transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true, margin: "-80px" }}
